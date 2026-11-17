@@ -20,3 +20,6 @@ frontend/coverage/
 *.log
 *.tsbuildinfo
 .aws/
+
+# B03 immutable local RAW objects (fixtures remain versioned).
+/data/raw/

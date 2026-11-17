@@ -1,0 +1,23 @@
+{
+  "schema_version": "public-focus-fixture/1.0",
+  "dataset": "cloud_costs",
+  "dataset_version": "fixture/1.0",
+  "data_source": "public",
+  "dataset_label": "DEMO",
+  "fixture": true,
+  "license": "CC0-1.0 (authored artificial fixtures only)",
+  "provenance": "Repository-authored artificial fixture; no provider data, no external validation",
+  "source_uri": "fixture://b03/public",
+  "cost_basis": "billed",
+  "currency": "USD",
+  "source_cost_field": "BilledCost",
+  "cost_method": "Native demo field; no conversion or price attribution",
+  "files": {
+    "costs.csv": {
+      "sha256": "9b7030ab709e0ec392dcb90545424c60ba734571bb8ea2fd22aef860b9b1a950",
+      "bytes": 215,
+      "rows": 2,
+      "role": "fixture"
+    }
+  }
+}

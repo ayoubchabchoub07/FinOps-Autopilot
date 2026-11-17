@@ -1,0 +1,2 @@
+# B03 fixture hashes describe exact bytes; disable checkout newline conversion.
+data/tests/fixtures/b03/** -text

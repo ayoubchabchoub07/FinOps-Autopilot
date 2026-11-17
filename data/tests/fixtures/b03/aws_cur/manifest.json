@@ -1,0 +1,23 @@
+{
+  "schema_version": "cur2-fixture/1.0",
+  "dataset": "cloud_costs",
+  "dataset_version": "fixture/1.0",
+  "data_source": "synthetic",
+  "dataset_label": "DEMO",
+  "fixture": true,
+  "license": "CC0-1.0 (authored artificial fixtures only)",
+  "provenance": "Repository-authored artificial fixture; no provider data, no external validation",
+  "source_uri": "fixture://b03/aws_cur",
+  "cost_basis": "unblended",
+  "currency": "USD",
+  "source_cost_field": "line_item_unblended_cost",
+  "cost_method": "Native demo field; no conversion or price attribution",
+  "files": {
+    "cur.csv": {
+      "sha256": "10b3db37e01225c1fd9b0eb08fc975ec2f270c7ae84667f8d32c4aa4ed5d28ff",
+      "bytes": 212,
+      "rows": 1,
+      "role": "fixture"
+    }
+  }
+}

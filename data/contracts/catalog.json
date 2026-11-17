@@ -1,0 +1,613 @@
+{
+  "contract_version": "1.0",
+  "datasets": {
+    "cloud_costs": {
+      "version": "1.0",
+      "key": [
+        "data_source",
+        "source_file",
+        "source_record_id"
+      ],
+      "fields": {
+        "usage_start_time": {
+          "type": "utc",
+          "nullable": false,
+          "unit": "ISO-8601 UTC timestamp"
+        },
+        "usage_date": {
+          "type": "date",
+          "nullable": false,
+          "unit": "ISO-8601 calendar date"
+        },
+        "account_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "service_name": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "region": {
+          "type": "string",
+          "nullable": true,
+          "unit": "dimension"
+        },
+        "resource_id": {
+          "type": "string",
+          "nullable": true,
+          "unit": "dimension"
+        },
+        "team": {
+          "type": "string",
+          "nullable": true,
+          "unit": "dimension"
+        },
+        "cost_amount": {
+          "type": "decimal",
+          "nullable": true,
+          "unit": "currency units, exact decimal string; no rounding"
+        },
+        "currency": {
+          "type": "currency",
+          "nullable": false,
+          "unit": "ISO-4217 code; USD only in demo"
+        },
+        "cost_basis": {
+          "type": "billed_basis",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "charge_type": {
+          "type": "string",
+          "nullable": true,
+          "unit": "dimension"
+        },
+        "source_record_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "data_source": {
+          "type": "source",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "source_file": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "ingestion_run_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "ingested_at": {
+          "type": "utc",
+          "nullable": false,
+          "unit": "ISO-8601 UTC timestamp"
+        },
+        "observation_status": {
+          "type": "observation",
+          "nullable": false,
+          "unit": "dimension"
+        }
+      }
+    },
+    "k8s_usage": {
+      "version": "1.0",
+      "key": [
+        "observation_time",
+        "cluster_id",
+        "namespace",
+        "workload",
+        "container"
+      ],
+      "fields": {
+        "observation_time": {
+          "type": "utc",
+          "nullable": false,
+          "unit": "ISO-8601 UTC timestamp"
+        },
+        "cluster_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "namespace": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "workload": {
+          "type": "string",
+          "nullable": true,
+          "unit": "dimension"
+        },
+        "container": {
+          "type": "string",
+          "nullable": true,
+          "unit": "dimension"
+        },
+        "cpu_request_cores": {
+          "type": "nonnegative",
+          "nullable": true,
+          "unit": "CPU cores, not core-hours"
+        },
+        "cpu_usage_cores": {
+          "type": "nonnegative",
+          "nullable": true,
+          "unit": "CPU cores, not core-hours"
+        },
+        "memory_request_bytes": {
+          "type": "integer",
+          "nullable": true,
+          "unit": "nonnegative bytes"
+        },
+        "memory_usage_bytes": {
+          "type": "integer",
+          "nullable": true,
+          "unit": "nonnegative bytes"
+        },
+        "allocated_cost_amount": {
+          "type": "decimal",
+          "nullable": true,
+          "unit": "currency units, exact decimal string; no rounding"
+        },
+        "currency": {
+          "type": "currency",
+          "nullable": false,
+          "unit": "ISO-4217 code; USD only in demo"
+        },
+        "cost_basis": {
+          "type": "allocated_basis",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "data_source": {
+          "type": "source",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "run_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "quality_flags": {
+          "type": "strings",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "source_file": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "ingestion_run_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "ingested_at": {
+          "type": "utc",
+          "nullable": false,
+          "unit": "ISO-8601 UTC timestamp"
+        }
+      }
+    },
+    "resource_inventory": {
+      "version": "1.0",
+      "key": [
+        "snapshot_at",
+        "account_id",
+        "region",
+        "resource_type",
+        "resource_id"
+      ],
+      "fields": {
+        "snapshot_at": {
+          "type": "utc",
+          "nullable": false,
+          "unit": "ISO-8601 UTC timestamp"
+        },
+        "account_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "region": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "resource_type": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "resource_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "state": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "tags": {
+          "type": "object",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "attachment_state": {
+          "type": "string",
+          "nullable": true,
+          "unit": "dimension"
+        },
+        "cloudformation_stack_id": {
+          "type": "string",
+          "nullable": true,
+          "unit": "dimension"
+        },
+        "metrics_coverage": {
+          "type": "object",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "data_source": {
+          "type": "source",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "run_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "source_file": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "ingestion_run_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "ingested_at": {
+          "type": "utc",
+          "nullable": false,
+          "unit": "ISO-8601 UTC timestamp"
+        }
+      }
+    },
+    "finops_budgets": {
+      "version": "1.0",
+      "key": [
+        "period_month",
+        "scope_type",
+        "scope_id",
+        "currency",
+        "effective_at"
+      ],
+      "fields": {
+        "period_month": {
+          "type": "month",
+          "nullable": false,
+          "unit": "YYYY-MM"
+        },
+        "scope_type": {
+          "type": "scope",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "scope_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "budget_amount": {
+          "type": "nonnegative",
+          "nullable": false,
+          "unit": "exact nonnegative decimal string"
+        },
+        "currency": {
+          "type": "currency",
+          "nullable": false,
+          "unit": "ISO-4217 code; USD only in demo"
+        },
+        "owner": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "source": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "effective_at": {
+          "type": "utc",
+          "nullable": false,
+          "unit": "ISO-8601 UTC timestamp"
+        }
+      }
+    },
+    "ml_forecast": {
+      "version": "1.0",
+      "key": [
+        "run_id",
+        "target_date",
+        "account_id",
+        "service_name"
+      ],
+      "fields": {
+        "generated_at": {
+          "type": "utc",
+          "nullable": false,
+          "unit": "ISO-8601 UTC timestamp"
+        },
+        "target_date": {
+          "type": "date",
+          "nullable": false,
+          "unit": "ISO-8601 calendar date"
+        },
+        "account_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "service_name": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "predicted_cost": {
+          "type": "decimal",
+          "nullable": false,
+          "unit": "currency units, exact decimal string; no rounding"
+        },
+        "prediction_lower": {
+          "type": "decimal",
+          "nullable": true,
+          "unit": "currency units, exact decimal string; no rounding"
+        },
+        "prediction_upper": {
+          "type": "decimal",
+          "nullable": true,
+          "unit": "currency units, exact decimal string; no rounding"
+        },
+        "model_version": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "training_dataset_version": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "run_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "data_source": {
+          "type": "source",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "currency": {
+          "type": "currency",
+          "nullable": false,
+          "unit": "ISO-4217 code; USD only in demo"
+        },
+        "cost_basis": {
+          "type": "billed_basis",
+          "nullable": false,
+          "unit": "dimension"
+        }
+      }
+    },
+    "ml_anomalies": {
+      "version": "1.0",
+      "key": [
+        "event_id"
+      ],
+      "fields": {
+        "event_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "usage_date": {
+          "type": "date",
+          "nullable": false,
+          "unit": "ISO-8601 calendar date"
+        },
+        "account_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "service_name": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "actual_cost": {
+          "type": "decimal",
+          "nullable": false,
+          "unit": "currency units, exact decimal string; no rounding"
+        },
+        "expected_cost": {
+          "type": "decimal",
+          "nullable": false,
+          "unit": "currency units, exact decimal string; no rounding"
+        },
+        "deviation": {
+          "type": "decimal",
+          "nullable": false,
+          "unit": "currency units, exact decimal string; no rounding"
+        },
+        "deviation_pct": {
+          "type": "decimal",
+          "nullable": true,
+          "unit": "percent; null if expected_cost=0"
+        },
+        "anomaly_score": {
+          "type": "decimal",
+          "nullable": true,
+          "unit": "currency units, exact decimal string; no rounding"
+        },
+        "severity": {
+          "type": "severity",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "model_version": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "status": {
+          "type": "alert_status",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "evidence": {
+          "type": "object",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "run_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "currency": {
+          "type": "currency",
+          "nullable": false,
+          "unit": "ISO-4217 code; USD only in demo"
+        },
+        "cost_basis": {
+          "type": "billed_basis",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "data_source": {
+          "type": "source",
+          "nullable": false,
+          "unit": "dimension"
+        }
+      }
+    },
+    "optimization_recommendations": {
+      "version": "1.0",
+      "key": [
+        "recommendation_id"
+      ],
+      "fields": {
+        "recommendation_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "resource_id": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "resource_type": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "finding_type": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "evidence": {
+          "type": "object",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "current_cost_estimate": {
+          "type": "decimal",
+          "nullable": true,
+          "unit": "currency units, exact decimal string; no rounding"
+        },
+        "proposed_cost_estimate": {
+          "type": "decimal",
+          "nullable": true,
+          "unit": "currency units, exact decimal string; no rounding"
+        },
+        "expected_monthly_savings": {
+          "type": "decimal",
+          "nullable": true,
+          "unit": "currency units, exact decimal string; no rounding"
+        },
+        "risk_score": {
+          "type": "nonnegative",
+          "nullable": true,
+          "unit": "score 0..100"
+        },
+        "risk_reasons": {
+          "type": "strings",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "policy_result": {
+          "type": "policy",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "proposal_status": {
+          "type": "string",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "stack_id": {
+          "type": "string",
+          "nullable": true,
+          "unit": "dimension"
+        },
+        "pull_request_url": {
+          "type": "string",
+          "nullable": true,
+          "unit": "dimension"
+        },
+        "change_set_arn": {
+          "type": "string",
+          "nullable": true,
+          "unit": "dimension"
+        },
+        "approval_status": {
+          "type": "approval",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "execution_status": {
+          "type": "execution",
+          "nullable": false,
+          "unit": "dimension"
+        },
+        "currency": {
+          "type": "currency",
+          "nullable": false,
+          "unit": "ISO-4217 code; USD only in demo"
+        },
+        "cost_basis": {
+          "type": "billed_basis",
+          "nullable": false,
+          "unit": "dimension"
+        }
+      }
+    }
+  }
+}

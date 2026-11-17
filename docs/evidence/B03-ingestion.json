@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-11-17T11:17:51.204317+00:00",
+  "checks": [
+    {
+      "command": "python -m data.generators.synthetic --config data/generators/demo_config.json --output data/generated/b03-demo",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"GENERATED\", \"data_source\": \"synthetic\", \"dataset_label\": \"DEMO\", \"rows\": 2190, \"manifest\": \"data\\\\generated\\\\b03-demo\\\\dataset_manifest.json\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m data.adapters --adapter synthetic --manifest data/generated/b03-demo/dataset_manifest.json --raw-root data/raw",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"INGESTED_OR_REUSED\", \"dataset_label\": \"DEMO\", \"objects\": [\"27fd58233505ee16014496ab3dfc3921fb026cf7224fe5b8f7467b3b497eea98\", \"af70aac73fa4982c352cac44ee9c47448502c5a2bc1ca9f6a65eda0fdfcd2c96\", \"195401190df0ab5c9f6fec5da47ab0196281f53273df86b5fee6343079ce3753\"], \"rows\": 2190}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m data.adapters --adapter public --manifest data/tests/fixtures/b03/public/manifest.json --raw-root data/raw",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"INGESTED_OR_REUSED\", \"dataset_label\": \"DEMO\", \"objects\": [\"92853794ca4224366eeb40e10962069846a98063bf32206f8be7786568cce1af\"], \"rows\": 2}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m data.adapters --adapter aws_cur --manifest data/tests/fixtures/b03/aws_cur/manifest.json --raw-root data/raw",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"INGESTED_OR_REUSED\", \"dataset_label\": \"DEMO\", \"objects\": [\"c04058fe7ad512fa6a7f07dbb7ec50b8bb086cf3216265ccdea5b9a41997429f\"], \"rows\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m data.adapters --adapter opencost --manifest data/tests/fixtures/b03/opencost/manifest.json --raw-root data/raw",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"INGESTED_OR_REUSED\", \"dataset_label\": \"DEMO\", \"objects\": [\"c66d2210348c6f929e3f6df83e83c4d02d8413e07b8d78a18d89a31da8708c50\"], \"rows\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m data.adapters --adapter aws_boto3 --manifest data/tests/fixtures/b03/aws_boto3/manifest.json --raw-root data/raw",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"INGESTED_OR_REUSED\", \"dataset_label\": \"DEMO\", \"objects\": [\"067532acccf09bbfb445d3b7b9c18441345d1cb7ef78188c5e5bf88bafb778cd\"], \"rows\": 1}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m data.adapters --adapter synthetic --manifest data/generated/b03-demo/dataset_manifest.json --raw-root data/raw",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"INGESTED_OR_REUSED\", \"dataset_label\": \"DEMO\", \"objects\": [\"27fd58233505ee16014496ab3dfc3921fb026cf7224fe5b8f7467b3b497eea98\", \"af70aac73fa4982c352cac44ee9c47448502c5a2bc1ca9f6a65eda0fdfcd2c96\", \"195401190df0ab5c9f6fec5da47ab0196281f53273df86b5fee6343079ce3753\"], \"rows\": 2190}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m data.adapters --adapter public --manifest data/tests/fixtures/b03/public/manifest.json --raw-root data/raw",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"INGESTED_OR_REUSED\", \"dataset_label\": \"DEMO\", \"objects\": [\"92853794ca4224366eeb40e10962069846a98063bf32206f8be7786568cce1af\"], \"rows\": 2}\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -19,6 +19,7 @@ documente l'audit B02 et le repli synthétique exécuté ; statut `PROPOSED` mai
 | G08 | [ADR-009](ADR-009-perimetre-gitops.md) | PROPOSED | B15 | Périmètre exact des ressources CloudFormation optimisables, politiques et approbateurs |
 | G09 | [ADR-010](ADR-010-rapport-rag-optionnel.md) | PROPOSED | Backlog | Rapport mensuel RAG/Knowledge Bases |
 | B01 local | [ADR-011](ADR-011-fondations-locales.md) | PROPOSED | B01 | Intégration de B02, versions, réseau et secrets locaux ; CI distante non vérifiée |
+| B03 local | [ADR-012](ADR-012-raw-local-immuable.md) | PROPOSED | B03 | Contrats 1.0, sidecars, identité RAW et limites des connecteurs déconnectés |
 
 ## Tenue du registre
 

@@ -5,7 +5,8 @@ Cette description expose l'objectif du projet. Au 16 novembre 2026, B00 et B02
 sont réalisés et **B01 a été intégré après B02**, sans modifier ses sources ni
 ses preuves. FastAPI, React/Vite/TypeScript, Grafana et les contrôles locaux
 fonctionnent. **B01 : PARTIAL** (déclenchement réel de CI sur PR non observé) ;
-**B02 : PASS** après non-régression. B03–B16 ne sont pas commencés.
+**B02 : PASS** après non-régression. **B03 : PASS** le 17 novembre 2026 :
+contrats et ingestion RAW locale ; B04–B16 ne sont pas commencés.
 Aucun déploiement AWS n'a été effectué.
 
 ## B01 — Lancer et vérifier le socle
@@ -35,6 +36,26 @@ Des wrappers PowerShell équivalents sont fournis dans `scripts/`.
 - [Runbook local et contrat de readiness](docs/operations/local-runbook.md).
 - [Preuves B01, résultats et fichiers livrés](docs/evidence/B01.md).
 - [Choix locaux et décisions ouvertes — ADR-011](docs/adr/ADR-011-fondations-locales.md).
+
+## B03 — Contrats et ingestion RAW locale
+
+Les sept contrats du plan sont versionnés. Les adaptateurs synthétique/public et
+les interfaces CUR/OpenCost/inventaire ne lisent que des fichiers locaux autorisés.
+Les fixtures publiques et AWS sont **artificielles, DEMO** ; aucun connecteur
+cloud réel ni validation externe n'est activé.
+
+```powershell
+python -m data.adapters --adapter public --manifest data/tests/fixtures/b03/public/manifest.json --raw-root data/raw
+.venv/Scripts/python.exe -m pytest data/tests/b03 -q
+```
+
+Une recharge identique réutilise l'objet RAW et son reçu initial. Les sources
+restent intactes ; les révisions ne sont jamais écrasées. Les sorties RAW sont
+ignorées par Git. Aucun ETL CLEAN n'est réalisé.
+
+- [Contrats, profils et unités](docs/data-contracts/contracts-v1.md).
+- [Runbook RAW](docs/operations/raw-ingestion.md).
+- [Preuves et limites B03](docs/evidence/B03.md).
 
 ## B02 — Générer et vérifier les données locales
 
@@ -111,4 +132,4 @@ emplacement d'origine ; ils n'ont pas été déplacés ou réécrits.
 
 CloudFormation reste l'IaC approuvée. Aucun template cloud ni workflow de
 déploiement n'est ajouté par B01. AWS exige les gates du plan et une autorisation
-explicite. B03 et les batches suivants attendent également cette autorisation.
+explicite. B04 et les batches suivants attendent également cette autorisation.

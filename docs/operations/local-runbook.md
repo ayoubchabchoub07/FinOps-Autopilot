@@ -52,9 +52,10 @@ docker compose ps
 python scripts/tasks.py down
 ```
 
-`test` exécute pytest (API, configuration et tests B02) puis les quatre tests React.
+`test` exécute pytest (API, configuration, tests B02 et B03) puis les quatre tests React.
 Les sources B02 sont conservées à l'identique dans `data/`. Ruff porte sur
-`backend/` et `scripts/` ; aucun reformatage des livrables B02 n'est effectué.
+`backend/`, `scripts/` et le nouveau code B03 dans `data/` ; les fichiers B02
+historiques sont explicitement exclus, aucun reformatage de ces livrables.
 `down` arrête uniquement le projet `finops-autopilot-local` et préserve son volume.
 Ne pas ajouter `-v` ou lancer un nettoyage global Docker.
 

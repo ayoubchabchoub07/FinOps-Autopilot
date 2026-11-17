@@ -1,0 +1,20 @@
+[
+  {
+    "observation_time": "2025-01-01T00:00:00Z",
+    "cluster_id": "demo-cluster",
+    "namespace": "demo",
+    "workload": "demo-app",
+    "container": null,
+    "cpu_request_cores": "1",
+    "cpu_usage_cores": null,
+    "memory_request_bytes": 1073741824,
+    "memory_usage_bytes": null,
+    "allocated_cost_amount": "3.125",
+    "currency": "USD",
+    "cost_basis": "allocated_estimate",
+    "quality_flags": [
+      "cpu_usage_missing",
+      "memory_usage_missing"
+    ]
+  }
+]

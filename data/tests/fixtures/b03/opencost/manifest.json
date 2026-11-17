@@ -1,0 +1,23 @@
+{
+  "schema_version": "opencost-projection-fixture/1.0",
+  "dataset": "k8s_usage",
+  "dataset_version": "fixture/1.0",
+  "data_source": "synthetic",
+  "dataset_label": "DEMO",
+  "fixture": true,
+  "license": "CC0-1.0 (authored artificial fixtures only)",
+  "provenance": "Repository-authored artificial fixture; no provider data, no external validation",
+  "source_uri": "fixture://b03/opencost",
+  "cost_basis": "allocated_estimate",
+  "currency": "USD",
+  "source_cost_field": "allocated_cost_amount",
+  "cost_method": "Native demo field; no conversion or price attribution",
+  "files": {
+    "allocation.json": {
+      "sha256": "4561d41869779afa4544d4e2dbf045aca1e7be24e868f1efb4bb850e01e2547f",
+      "bytes": 486,
+      "rows": 1,
+      "role": "fixture"
+    }
+  }
+}

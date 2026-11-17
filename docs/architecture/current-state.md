@@ -5,6 +5,8 @@
 > synthétique ajoutés. La correction de l'ordre B01 après B02 est documentée dans
 > [B01](../evidence/B01.md) : socle local opérationnel, statut global PARTIAL
 > tant que le déclenchement réel de la CI sur PR n'est pas vérifié.
+> Au 17 novembre 2026 : [B03](../evidence/B03.md) ajoute les contrats et adaptateurs
+> RAW déconnectés ; aucun traitement CLEAN ni accès AWS. Le corps reste l'instantané B00.
 
 Date : **2026-11-15**, fuseau de référence `Africa/Lagos`.
 Périmètre autorisé : **B00 seulement**. Les observations portent sur ce checkout

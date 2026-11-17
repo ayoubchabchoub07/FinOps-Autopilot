@@ -76,10 +76,10 @@ def main() -> None:
             run([str(python), "-m", "pytest", "-q"])
             run([npm, "run", "test", "--", "--run"], ROOT / "frontend")
         elif args.action == "lint":
-            run([str(ruff), "check", "backend", "scripts"])
+            run([str(ruff), "check", "backend", "scripts", "data"])
             run([npm, "run", "lint"], ROOT / "frontend")
         elif args.action == "format-check":
-            run([str(ruff), "format", "--check", "backend", "scripts"])
+            run([str(ruff), "format", "--check", "backend", "scripts", "data"])
             run([npm, "run", "format-check"], ROOT / "frontend")
         elif args.action in ("typecheck", "build"):
             run([npm, "run", args.action], ROOT / "frontend")

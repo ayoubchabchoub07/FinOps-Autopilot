@@ -1,0 +1,23 @@
+{
+  "schema_version": "inventory-projection-fixture/1.0",
+  "dataset": "resource_inventory",
+  "dataset_version": "fixture/1.0",
+  "data_source": "synthetic",
+  "dataset_label": "DEMO",
+  "fixture": true,
+  "license": "CC0-1.0 (authored artificial fixtures only)",
+  "provenance": "Repository-authored artificial fixture; no provider data, no external validation",
+  "source_uri": "fixture://b03/aws_boto3",
+  "cost_basis": null,
+  "currency": null,
+  "source_cost_field": null,
+  "cost_method": "Native demo field; no conversion or price attribution",
+  "files": {
+    "inventory.json": {
+      "sha256": "c622559554288435cdeeef1ae84049c84b1ae8f1a56a880efe61a565e0129c0d",
+      "bytes": 354,
+      "rows": 1,
+      "role": "fixture"
+    }
+  }
+}

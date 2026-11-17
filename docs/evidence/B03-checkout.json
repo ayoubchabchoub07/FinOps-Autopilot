@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "method": "git checkout-index with core.autocrlf=true in isolated temporary repository",
+  "files_compared": 8,
+  "attributes": "data/tests/fixtures/b03/** -text",
+  "remote_operations": false
+}

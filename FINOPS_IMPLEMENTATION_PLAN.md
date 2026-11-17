@@ -2,7 +2,7 @@
 
 > **FinOps Autopilot — Plan directeur d'implémentation pour Codex**  
 > Version : `1.0` — 11 novembre 2026  
-> Statut : **B00 et B02 PASS ; B01 PARTIAL (local vérifié, CI sur PR non observée) ; B03–B16 non commencés**  
+> Statut : **B00, B02 et B03 PASS ; B01 PARTIAL (local vérifié, CI sur PR non observée) ; B04–B16 non commencés**
 > Langue des rapports, tickets et documentations : français ; noms techniques, code, API et tests : anglais.  
 > **Instruction importante :** ce fichier est une spécification d'exécution. Il ne constitue pas la preuve qu'une fonctionnalité est déjà implémentée.
 
@@ -440,17 +440,17 @@ La numérotation est l'ordre d'exécution par défaut ; une optimisation en para
 **Objectif :** permettre aux différentes sources d'alimenter le même pipeline, sans préjuger du déploiement AWS.
 
 **Tâches**
-- [ ] Écrire contrats détaillés des datasets du §5 : champs obligatoires, types, unités, clés et règles de qualité.
-- [ ] Trancher ou matérialiser G02 : base de coûts de référence (source + méthode + champ), devise USD par défaut en mode démonstration ; ne pas convertir silencieusement les devises.
-- [ ] Implémenter `SyntheticAdapter` et `PublicDatasetAdapter` derrière une interface commune `collect()` / `validate_manifest()` / `write_raw()`.
-- [ ] Concevoir mais **ne pas connecter** `Cur2Adapter`, `OpenCostAdapter`, `AwsInventoryAdapter` : interfaces, schémas, tests avec fixtures.
-- [ ] Conserver les données RAW immuables ; gestion des recharges, manifeste d'ingestion et hash des sources.
-- [ ] Prévoir `data_source`, `source_file`, `ingestion_run_id`, `ingested_at` dès RAW/clean.
+- [x] Écrire contrats détaillés des datasets du §5 : champs obligatoires, types, unités, clés et règles de qualité.
+- [x] Trancher ou matérialiser G02 : base de coûts de référence (source + méthode + champ), devise USD par défaut en mode démonstration ; ne pas convertir silencieusement les devises. Repli local matérialisé ; décision réelle PROPOSED dans ADR-003.
+- [x] Implémenter `SyntheticAdapter` et `PublicDatasetAdapter` derrière une interface commune `collect()` / `validate_manifest()` / `write_raw()`.
+- [x] Concevoir mais **ne pas connecter** `Cur2Adapter`, `OpenCostAdapter`, `AwsInventoryAdapter` : interfaces, schémas, tests avec fixtures.
+- [x] Conserver les données RAW immuables ; gestion des recharges, manifeste d'ingestion et hash des sources.
+- [x] Prévoir `data_source`, `source_file`, `ingestion_run_id`, `ingested_at` dès RAW/clean. Sidecars RAW ; propagation CLEAN prévue par contrat, réservée à B04.
 
 **Tests**
-- [ ] Chaque adaptateur accepte les fixtures autorisées et rejette les schémas incompatibles avec message explicite.
-- [ ] Ingérer deux fois un fichier ne le duplique pas logiquement.
-- [ ] Les fichiers source restent identiques octet par octet.
+- [x] Chaque adaptateur accepte les fixtures autorisées et rejette les schémas incompatibles avec message explicite.
+- [x] Ingérer deux fois un fichier ne le duplique pas logiquement.
+- [x] Les fichiers source restent identiques octet par octet.
 
 **DONE :** contrats versionnés ; au moins deux adaptateurs utilisables si dataset public retenu, sinon synthétique + fixtures publiques ; interfaces AWS testées avec mocks.
 
@@ -924,7 +924,7 @@ Mettre à jour ce tableau après **exécution réelle** de chaque batch, pas sim
 | B00 | PASS | [audit / ADR / preuves](docs/evidence/B00.md) |
 | B01 | PARTIAL | [Socle local et tests vérifiés](docs/evidence/B01.md) ; déclenchement réel CI sur PR non observé |
 | B02 | PASS | [audit datasets + générateur + preuves](docs/evidence/B02.md) ; [non-régression après B01](docs/evidence/B01.md), fichiers B02 préservés |
-| B03 | TODO | contrats + ingestion RAW |
+| B03 | PASS | [Contrats 1.0, adaptateurs RAW locaux et preuves](docs/evidence/B03.md) ; G02 matérialisé, aucun connecteur réel |
 | B04 | TODO | PySpark CLEAN + quarantine |
 | B05 | TODO | CURATED + KPIs + réconciliation |
 | B06 | TODO | modèles ML + évaluation |

@@ -1,0 +1,3 @@
+x_SourceRecordId,ChargePeriodStart,BillingAccountId,ServiceName,BilledCost,BillingCurrency
+fixture-1,2025-01-01T00:00:00Z,demo-account,Compute,12.50,USD
+fixture-2,2025-01-02T00:00:00Z,demo-account,Compute,-1.25,USD

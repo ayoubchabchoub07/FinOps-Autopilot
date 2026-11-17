@@ -1,0 +1,50 @@
+{
+  "created": [
+    ".gitattributes",
+    "data/adapters/__init__.py",
+    "data/adapters/__main__.py",
+    "data/adapters/base.py",
+    "data/adapters/profiles.py",
+    "data/contracts/__init__.py",
+    "data/contracts/catalog.json",
+    "data/tests/b03/test_contracts.py",
+    "data/tests/b03/test_raw_adapters.py",
+    "data/tests/fixtures/b03/aws_boto3/inventory.json",
+    "data/tests/fixtures/b03/aws_boto3/manifest.json",
+    "data/tests/fixtures/b03/aws_cur/cur.csv",
+    "data/tests/fixtures/b03/aws_cur/manifest.json",
+    "data/tests/fixtures/b03/opencost/allocation.json",
+    "data/tests/fixtures/b03/opencost/manifest.json",
+    "data/tests/fixtures/b03/public/costs.csv",
+    "data/tests/fixtures/b03/public/manifest.json",
+    "docs/adr/ADR-012-raw-local-immuable.md",
+    "docs/architecture/B03-implementation.md",
+    "docs/data-contracts/contracts-v1.md",
+    "docs/evidence/B03-checkout.json",
+    "docs/evidence/B03-checks.json",
+    "docs/evidence/B03-files.json",
+    "docs/evidence/B03-ingestion.json",
+    "docs/evidence/B03-preservation.json",
+    "docs/evidence/B03.md",
+    "docs/operations/raw-ingestion.md"
+  ],
+  "modified": [
+    ".gitignore",
+    "FINOPS_IMPLEMENTATION_PLAN.md",
+    "README.md",
+    "docs/adr/ADR-003-base-de-cout-devise.md",
+    "docs/adr/README.md",
+    "docs/architecture/current-state.md",
+    "docs/operations/local-runbook.md",
+    "pyproject.toml",
+    "scripts/tasks.py"
+  ],
+  "deleted": [],
+  "ignored_runtime": [
+    "data/generated/b03-demo/",
+    "data/raw/",
+    ".local/backups/B03-preimplementation/",
+    ".local/B03-checkout-check/",
+    ".local/B03-*.txt"
+  ]
+}
