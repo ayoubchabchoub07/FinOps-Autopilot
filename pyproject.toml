@@ -1,0 +1,24 @@
+[project]
+name = "finops-autopilot"
+version = "0.1.0"
+description = "Local foundations for FinOps Autopilot"
+requires-python = ">=3.13,<3.14"
+dependencies = ["fastapi==0.163.1", "uvicorn==0.54.0"]
+
+[dependency-groups]
+dev = ["pytest==9.2.0", "httpx2==2.16.2", "ruff==0.17.5"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["backend/tests", "data/tests", "scripts/tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+extend-exclude = ["data", ".local", ".cache"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

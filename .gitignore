@@ -1,0 +1,22 @@
+# B02 local datasets and audit downloads; never commit generated/vendor data.
+/data/generated/
+/.cache/public-audit/
+__pycache__/
+*.py[cod]
+# Keep local credentials out of future additions; sample stays versionable.
+.env
+.env.*
+!.env.example
+
+# B01 environments, verified backups, local secrets and build outputs.
+/.local/
+/.venv/
+/.uv-cache/
+/.pytest_cache/
+/.ruff_cache/
+**/node_modules/
+frontend/dist/
+frontend/coverage/
+*.log
+*.tsbuildinfo
+.aws/

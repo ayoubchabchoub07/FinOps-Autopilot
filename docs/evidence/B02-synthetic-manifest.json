@@ -1,0 +1,162 @@
+{
+  "cost_basis_note": "unblended is a synthetic demo assumption only; G02 remains open for real sources",
+  "data_source": "synthetic",
+  "dataset_id": "c80e81d9ad4ce8c2ca6d33c6431770fe4e073c5746e0d29869a456d43b6024d9",
+  "dataset_label": "DEMO",
+  "external_validation": "NOT_AVAILABLE",
+  "files": {
+    "test.csv": {
+      "bytes": 85142,
+      "rows": 438,
+      "sha256": "5b7174ac1a16358da1e220edad17174af43048146f5b59f426073ed3948e6fd7"
+    },
+    "test_labels.csv": {
+      "bytes": 52851,
+      "rows": 438,
+      "sha256": "1fec9fc23e723f0bba114f6beb2be85fe05bae5ca96b5868a69d4cfff68c7fec"
+    },
+    "train.csv": {
+      "bytes": 255067,
+      "rows": 1314,
+      "sha256": "1dd56c3ea4cbe10234eb374daea090ff405bc624686023a9b377f2109b12d5a4"
+    },
+    "train_labels.csv": {
+      "bytes": 158295,
+      "rows": 1314,
+      "sha256": "07e8628b3770572af08c06da6e7c255f377e85498b2838ad0b23603cd2e3af78"
+    },
+    "validation.csv": {
+      "bytes": 85140,
+      "rows": 438,
+      "sha256": "02f50582fd7e74748edea6cad02c1bab3203abfdf41066bf7b01928c26cc511e"
+    },
+    "validation_labels.csv": {
+      "bytes": 52855,
+      "rows": 438,
+      "sha256": "948a6b398d3fc11003a07ce1685e0687eaf656fd2a603feccf2a295eaf1f56eb"
+    }
+  },
+  "generation_reference_time": "2026-11-16T00:00:00Z",
+  "generator_sha256": "4cb680e2d81f781e89d3de8d7e9b6e37e27937905a3a5a33945be3ce705af68c",
+  "generator_version": "1.0.0",
+  "label_schema": {
+    "baseline_cost": "string",
+    "data_source": "string",
+    "event_type": "string",
+    "injected_delta": "string",
+    "is_anomaly": "string",
+    "source_record_id": "string",
+    "usage_date": "string"
+  },
+  "license": "CC0-1.0 (generated synthetic data only; not repository code)",
+  "limitations": [
+    "No AWS prices or validated ML performance",
+    "No observed zero implied by missing amount",
+    "Labels and baseline costs must never be model inputs",
+    "Test data must not guide tuning; report only final evaluation"
+  ],
+  "method": "Integer cents; SHA-256 keyed draws; daily trend, weekly factors, step regime, noise and disjoint events",
+  "observation_schema": {
+    "account_id": "string",
+    "charge_type": "string",
+    "cost_amount": "decimal(2), nullable for missing",
+    "cost_basis": "string",
+    "currency": "string",
+    "data_source": "string",
+    "dataset_label": "string",
+    "observation_status": "string",
+    "region": "string",
+    "service_name": "string",
+    "source_record_id": "string",
+    "usage_date": "date ISO-8601",
+    "usage_start_time": "string"
+  },
+  "parameters": {
+    "accounts": [
+      "demo-account-a",
+      "demo-account-b"
+    ],
+    "anomaly_bps": 250,
+    "anomaly_factor_bps": 25000,
+    "base_cost_cents": [
+      10000,
+      2500,
+      7000
+    ],
+    "credit_bps": 100,
+    "generation_reference_time": "2026-11-16T00:00:00Z",
+    "missing_bps": 200,
+    "months": 12,
+    "noise_bps": 800,
+    "regime_day": 180,
+    "regime_factor_bps": 12500,
+    "seed": 42,
+    "services": [
+      "AmazonEC2",
+      "AmazonS3",
+      "AmazonRDS"
+    ],
+    "start_date": "2025-01-01",
+    "test_seed": 43,
+    "train_fraction": "0.6",
+    "trend_bps_per_day": 3,
+    "validation_fraction": "0.2",
+    "weekly_factors_bps": [
+      10000,
+      10300,
+      10600,
+      10400,
+      10200,
+      8000,
+      7500
+    ]
+  },
+  "period": {
+    "days": 365,
+    "end_date": "2025-12-31",
+    "start_date": "2025-01-01"
+  },
+  "provenance": "FinOps Autopilot deterministic local simulator; no real billing data",
+  "public_validation_status": "PUBLIC_VALIDATION_NOT_FEASIBLE",
+  "reference_time_semantics": "Caller-declared reproducibility metadata, not observed execution time",
+  "schema_version": "synthetic-costs/1.0",
+  "splits": {
+    "test": {
+      "end_date": "2025-12-31",
+      "events": {
+        "credit": 2,
+        "missing": 14,
+        "normal": 412,
+        "spike": 10
+      },
+      "random_seed": 43,
+      "rows": 438,
+      "start_date": "2025-10-20"
+    },
+    "train": {
+      "end_date": "2025-08-07",
+      "events": {
+        "credit": 16,
+        "missing": 30,
+        "normal": 1236,
+        "spike": 32
+      },
+      "random_seed": 42,
+      "rows": 1314,
+      "start_date": "2025-01-01"
+    },
+    "validation": {
+      "end_date": "2025-10-19",
+      "events": {
+        "credit": 8,
+        "missing": 14,
+        "normal": 406,
+        "spike": 10
+      },
+      "random_seed": 42,
+      "rows": 438,
+      "start_date": "2025-08-08"
+    }
+  },
+  "test_scope": "Chronological synthetic holdout with distinct random seed; same simulator, not external validation"
+}

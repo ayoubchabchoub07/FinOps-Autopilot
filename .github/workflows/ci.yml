@@ -1,0 +1,50 @@
+name: Local foundation checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  local-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install pinned package manager
+        run: python -m pip install uv==0.12.2
+      - name: Restore locked local dependencies
+        run: python scripts/tasks.py setup
+      - name: Tests including preserved B02
+        run: python scripts/tasks.py test
+      - name: Linux secret permissions
+        run: python -m scripts.tests.check_secret_permissions
+      - name: Lint
+        run: python scripts/tasks.py lint
+      - name: Format
+        run: python scripts/tasks.py format-check
+      - name: Typecheck and build
+        run: |
+          python scripts/tasks.py typecheck
+          python scripts/tasks.py build
+      - name: Validate Compose
+        run: docker compose config --quiet
+      - name: Build and start local containers
+        run: python scripts/tasks.py dev
+      - name: HTTP smoke tests
+        run: python scripts/tasks.py smoke
+      - name: Stop local containers, preserve volumes
+        if: always()
+        run: python scripts/tasks.py down

@@ -1,0 +1,14 @@
+{
+  "audit_date": "2026-11-16",
+  "result": "PASS",
+  "file_count": 7,
+  "sha256": {
+    "dataset_manifest.json": "976f92674d84bbbc0409fc19155cf9224e274937e2258e7102f174ed55d88cc1",
+    "test.csv": "5b7174ac1a16358da1e220edad17174af43048146f5b59f426073ed3948e6fd7",
+    "test_labels.csv": "1fec9fc23e723f0bba114f6beb2be85fe05bae5ca96b5868a69d4cfff68c7fec",
+    "train.csv": "1dd56c3ea4cbe10234eb374daea090ff405bc624686023a9b377f2109b12d5a4",
+    "train_labels.csv": "07e8628b3770572af08c06da6e7c255f377e85498b2838ad0b23603cd2e3af78",
+    "validation.csv": "02f50582fd7e74748edea6cad02c1bab3203abfdf41066bf7b01928c26cc511e",
+    "validation_labels.csv": "948a6b398d3fc11003a07ce1685e0687eaf656fd2a603feccf2a295eaf1f56eb"
+  }
+}

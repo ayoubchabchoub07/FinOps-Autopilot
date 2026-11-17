@@ -1,0 +1,21 @@
+{
+  "seed": 42,
+  "test_seed": 43,
+  "start_date": "2025-01-01",
+  "months": 12,
+  "accounts": ["demo-account-a", "demo-account-b"],
+  "services": ["AmazonEC2", "AmazonS3", "AmazonRDS"],
+  "base_cost_cents": [10000, 2500, 7000],
+  "weekly_factors_bps": [10000, 10300, 10600, 10400, 10200, 8000, 7500],
+  "trend_bps_per_day": 3,
+  "regime_day": 180,
+  "regime_factor_bps": 12500,
+  "noise_bps": 800,
+  "missing_bps": 200,
+  "credit_bps": 100,
+  "anomaly_bps": 250,
+  "anomaly_factor_bps": 25000,
+  "train_fraction": "0.6",
+  "validation_fraction": "0.2",
+  "generation_reference_time": "2026-11-16T00:00:00Z"
+}

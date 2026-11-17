@@ -1,0 +1,72 @@
+name: finops-autopilot-local
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      FINOPS_MODE: ${FINOPS_MODE:-local}
+      FINOPS_AWS_ENABLED: ${FINOPS_AWS_ENABLED:-false}
+      FINOPS_LLM_PROVIDER: ${FINOPS_LLM_PROVIDER:-mock}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready', timeout=3)"]
+      interval: 5s
+      timeout: 4s
+      retries: 12
+      start_period: 5s
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    networks: [local]
+
+  grafana:
+    image: grafana/grafana@sha256:0615ec4fbd4072004b7d86b46ded63013a74b7d6eb1119273dd89e8fa25c13cf
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_ADMIN_USER:-finops-local}
+      GF_SECURITY_ADMIN_PASSWORD__FILE: /run/secrets/grafana_admin_password
+      GF_SERVER_ROOT_URL: http://localhost:${FINOPS_WEB_PORT:-18000}/grafana/
+      GF_SERVER_SERVE_FROM_SUB_PATH: "true"
+    secrets: [grafana_admin_password]
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini:ro
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--spider", "http://127.0.0.1:3000/grafana/api/health"]
+      interval: 5s
+      timeout: 4s
+      retries: 24
+      start_period: 15s
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    networks: [local]
+
+  web:
+    build: ./frontend
+    ports:
+      - "127.0.0.1:${FINOPS_WEB_PORT:-18000}:8080"
+    depends_on:
+      api:
+        condition: service_healthy
+      grafana:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--spider", "http://127.0.0.1:8080/"]
+      interval: 5s
+      timeout: 4s
+      retries: 12
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    networks: [local, ingress]
+
+secrets:
+  grafana_admin_password:
+    file: ./.local/secrets/grafana-admin-password
+
+volumes:
+  grafana-data:
+
+networks:
+  local:
+    internal: true
+  ingress:
+    driver: bridge

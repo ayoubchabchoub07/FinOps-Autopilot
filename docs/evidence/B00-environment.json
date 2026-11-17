@@ -1,0 +1,109 @@
+{
+  "audit_date": "2026-11-15",
+  "timezone": "Africa/Lagos",
+  "scope": "local read-only probes; no AWS calls",
+  "checks": [
+    {
+      "command": "git --version",
+      "exit_code": 0,
+      "stdout": "git version 2.51.0.windows.1",
+      "stderr": ""
+    },
+    {
+      "command": "python --version",
+      "exit_code": 0,
+      "stdout": "Python 3.13.5",
+      "stderr": ""
+    },
+    {
+      "command": "py --list",
+      "exit_code": 0,
+      "stdout": "-V:3.13 *        Python 3.13 (64-bit)",
+      "stderr": ""
+    },
+    {
+      "command": "node --version",
+      "exit_code": 0,
+      "stdout": "v22.17.0",
+      "stderr": ""
+    },
+    {
+      "command": "npm.cmd --version",
+      "exit_code": 0,
+      "stdout": "10.9.2",
+      "stderr": ""
+    },
+    {
+      "command": "uv --version",
+      "exit_code": 0,
+      "stdout": "uv 0.12.2 (46ead6098 2026-08-05 x86_64-pc-windows-msvc)",
+      "stderr": ""
+    },
+    {
+      "command": "python -m pytest --version",
+      "exit_code": 0,
+      "stdout": "pytest 9.2.0",
+      "stderr": ""
+    },
+    {
+      "command": "docker --version",
+      "exit_code": 0,
+      "stdout": "Docker version 29.3.1, build c2be9cc",
+      "stderr": "WARNING: Error loading config file: open C:\\Users\\user\\.docker\\config.json: Access is denied."
+    },
+    {
+      "command": "docker compose version",
+      "exit_code": 0,
+      "stdout": "Docker Compose version v5.1.1",
+      "stderr": "WARNING: Error loading config file: open C:\\Users\\user\\.docker\\config.json: Access is denied."
+    },
+    {
+      "command": "docker version",
+      "exit_code": 1,
+      "stdout": "Client:\n Version:           29.3.1\n API version:       1.54\n Go version:        go1.25.8\n Git commit:        c2be9cc\n Built:             Wed Mar 25 16:16:33 2026\n OS/Arch:           windows/amd64\n Context:           default",
+      "stderr": "WARNING: Error loading config file: open C:\\Users\\user\\.docker\\config.json: Access is denied.\nfailed to connect to the docker API at npipe:////./pipe/docker_engine; check if the path is correct and if the daemon is running: open //./pipe/docker_engine: The system cannot find the file specified."
+    },
+    {
+      "command": "wsl --version",
+      "exit_code": 0,
+      "stdout": "Version WSL : 2.6.3.0\r\nVersion du noyau : 6.6.87.2-1\r\nVersion WSLg : 1.0.71\r\nVersion MSRDC : 1.2.6353\r\nVersion direct3D : 1.611.1-81528511\r\nVersion de DXCore : 10.0.26100.1-240331-1435.ge-release\r\nVersion de Windows : 10.0.26300.9974",
+      "stderr": ""
+    },
+    {
+      "command": "wsl --status",
+      "exit_code": 4294967295,
+      "stdout": "Accès refusé. \r\nCode d'erreur : Wsl/EnumerateDistros/Service/E_ACCESSDENIED",
+      "stderr": ""
+    },
+    {
+      "command": "wsl --list --verbose",
+      "exit_code": 4294967295,
+      "stdout": "Accès refusé. \r\nCode d'erreur : Wsl/EnumerateDistros/Service/E_ACCESSDENIED",
+      "stderr": ""
+    },
+    {
+      "command": "git status --short --branch",
+      "exit_code": 0,
+      "stdout": "## main...origin/main\n?? FINOPS_IMPLEMENTATION_PLAN.md",
+      "stderr": ""
+    },
+    {
+      "command": "git log --all --oneline",
+      "exit_code": 0,
+      "stdout": "8b9a9cb Initial commit",
+      "stderr": ""
+    },
+    {
+      "command": "git ls-files",
+      "exit_code": 0,
+      "stdout": "README.md",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}
